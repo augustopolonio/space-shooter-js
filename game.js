@@ -14,9 +14,10 @@ class SpaceShooter extends Phaser.Scene {
   create() {
     player = this.physics.add.sprite(
       this.scale.width * 0.5,
-      this.scale.height - 50, 
+      this.scale.height - 100, 
       'player'
     );
+    player.scale = 0.6
     player.depth = 1;
     player.setCollideWorldBounds(true);
 
@@ -31,6 +32,13 @@ class SpaceShooter extends Phaser.Scene {
 const game = new Phaser.Game({
   type: Phaser.CANVAS,
   backgroundColor: '#0B1215',
+  pixelArt: true,
+  scale: {
+    mode: Phaser.Scale.HEIGHT_CONTROLS_WIDTH,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+    width: 800,
+    height: 800
+  },
   physics: {
     default: 'arcade',
     arcade: {
